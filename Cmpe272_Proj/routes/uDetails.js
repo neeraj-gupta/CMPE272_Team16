@@ -26,7 +26,7 @@ exports.getUniversityDetails = function(req,res){
 };
 
 exports.getUniversityList=function(req,res){
-	var query="select id,uname from ad_4a077c919828cb2.university_details";
+	var query="select id,uname,website from ad_4a077c919828cb2.university_details";
 	mysqlpool.execQuery(query,"",function(err,results){
 		if(err){
 			throw err;

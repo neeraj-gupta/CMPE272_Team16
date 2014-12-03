@@ -87,11 +87,13 @@
                 <!-- START HEADER -->
                 <div id="header" class="group">
                 
+                    <!-- START LOGO -->
                     <div id="logo" class="group">
-                        <a href="home" title="Fly US"> 
-                        <img src="images/logo.png" alt="Fly US" />
+                        <a href="index.html" title="Diverso"> 
+                        <img src="images/logo.png" alt="Logo Diverso" />
                         </a>              
                     </div>
+                    <!-- END LOGO -->
                     
                     <!-- START NAV -->
                     <div id="nav" class="group">
@@ -129,91 +131,71 @@
                 
                     <!-- SLOGAN --> 
                     <div id="slogan" class="inner">
-                        <h1 class="only">University</h1>
+                        <h1 class="only"><%= header%></h1>
                     </div>         
                     <!-- END SLOGAN --> 
                 
                     <!-- START PRIMARY -->
-                    <div id="primary" class="hentry group wrapper-content portfolio-post" role="main">
-                
-                        <div class="post_content group">                
-                            <div>
-								<h4>University Name</h4>
-								<%= result.uname%>
-							</div>
-								<br>
-							<div>	
-								<h4>Preface</h4>
-								<%= result.preface%>
-							</div>
-								<br>
-							<div>
-								<h4>Location</h4>
-								<%= result.location%>
-							</div>
-								<br>
-							<div>
-								<h4>Infrastructure</h4>
-								<%= result.infrastructure%>
-							</div>
-								<br>
-							<div>
-								<h4>Weather</h4>
-								<%= result.weather%>
-							</div>
-								<br>
-							<div>
-								<h4>Courses</h4>
-								<%= result.courses%>
-							</div>
-								<br>
-							<div>
-								<h4>Faculty</h4>
-								<%= result.faculty%>
-							</div>	
-								<br>
-							<div>
-								<h4>Fees</h4>
-								<%= result.fees%>
-							</div>
-								<br>
-							<div>
-								<h4>Financial Aid</h4>
-								<%= result.financialaid%>
-							</div>
-								<br>
-							<div>
-								<h4>Placements</h4>
-								<%= result.placements%>
-							</div>
-								<br>
-							<div>
-								<h4>Crowd</h4>
-								<%= result.crowd%>
-							</div>
-								<br>
-							<div>
-								<h4>Famous</h4>
-								<%= result.famous%>
-							</div>
-								<br>
-							<div>
-								<h4>Verdict</h4>
-								<%= result.verdict%>
-							</div>
-								<br>
-							<div>
-								<h4>Website</h4>
-								<%= result.website%>
-							</div>									
-                            </div>
+                    <div id="primary" class="hentry group wrapper-content" role="main">
+                    <h2>Few FAQs on DS-160.</h2>
+                    <p>Q) I messed up my DS160. Filled incorrect information, forgot some section etc. I realize this after scheduling my interview, What do I do, Im freaking out. </p>
+
+					<p>A ) First, never freak out. Calm down and everything can be fixed. You have 2 options here
+					</p>
+					<p style = "padding-left:2em">1) Fill up a new DS160 without any mistakes. Yes you can fill as many you want. Take the confirmation page of this new ds160 as well as the old with you to the consulate. Before the interview or during OFC tell them that you messed up and this is the new copy. Also, for the VI keep both pages with you and if the VO asks tell them frankly that you made a mistake and rectified it. It wont be a problem at all
+					</p>
+					<p style = "padding-left:2em">2) The SAFEST way. Cancel you current appointment. You can do it once. Refill a new DS160 without any mistakes. Take the number and confirmation page. Schedule your appointment again and this time fill in the new ds160 confirmation on the page where you enter passport details and all. Done.
+					</p>
+					<p>Q) I scheduled an appointment with details from university X. But now I have an admit from university Y which is way better and I definitely want to change. What to do ?
+					</p>
+					<p>A) 
+					1) Cancel you visa appointment first. Since the university is changing you need to go through the whole procedure again. But you wont need to pay 160$ visa fees again . Keep in mind that there is a limit on cancellations.
+					</p>
+					<p>2) Pay the sevis fee for the new university with new sevis id. take the receipt.
+					</p>
+					<p>3) Fill up a new ds160 with details about your new university and its i20. Take the confirmation page and number.
+					</p>
+					<p>4) go to ustraveldocs site again and click on schedule appointment. At the page where it asks for your passport details etc fill in the ds160 number from point 3 and your new university's sevis id. Schedule appointment as required. 
+					</p>
+					<p>Q) I messed up with an option on ustraveldocs site.For e.g. I selected "YES" at interview waiver program page and I can schedule an appointment now. etc 
+					</p>
+					<p>A ) Don't panic. Send out an email to support-india. The exact email is present on their website. Tell them about your mistake. What they do is re-activate your fee payment receipt. So you can schedule your appointment again. Generally takes a day or two but you dont need to pay fess again. 
+					</p>
+
+					<p>Q ) I asked for re-issuance of my i20 since the one they sent had some mistakes. What do i do?
+					</p>
+					<p>A) Do not go to any appointment without your final i20. Cancel your appointment. Get your new i20 and check if the SEVIS id / college code is the same. Also your name should be exactly the same as it is on your passport. If any of the above has changed you might need to pay the SEVIS fee again else it should be fine. Once you are done with that, schedule your appointment again and enter details as per your new i20. 
+                   	</p> 
+					
+					</div>
+                    <!-- END CONTENT -->
+                    
+                    <!-- START SIDEBAR -->
+                    <div id="sidebar" class="group">
+                        <div class="widget-first widget widget_nav_menu">
+                            <h3>Forms</h3>
+                            
+                            <ul class="menu">
+                                <li><a href="">Visa Information</a></li>
+                                <li><a href="">Forms</a></li>
+                                <li><a href="viQuestions">Sample Visa Questions</a></li>
+                                <li><a href="ds160faqs">DS-160 FAQs</a></li>
+                                <li><a href="">To Do</a></li>
+                                <li><a href="immigration">Videos</a></li>
+                            </ul>
                         </div>
                         
+                        <h3>Google Map</h3>
+                        <div class="google-map-frame">
+                            <iframe width="100%" height="272" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.it/maps?f=q&amp;source=s_q&amp;hl=it&amp;geocode=&amp;q=catania&amp;aq=&amp;sll=41.442726,12.392578&amp;sspn=18.129097,39.506836&amp;ie=UTF8&amp;hq=&amp;hnear=Catania,+Sicilia&amp;z=12&amp;output=embed"></iframe>
+                            <div class="shadow-thumb-sidebar"></div>
+                        </div>
                     </div>
-                    <!-- END CONTENT -->        
+                    <!-- END SIDEBAR -->      
                     
                 </div>
-                <!-- END CONTENT -->        
+                <!-- END CONTENT -->
+        
 
                 <!-- START TWITTER -->
                 <div id="twitter-slider" class="group">
@@ -233,6 +215,7 @@
                             <a href="#" class="socials linkedin" title="Linkedin">linkedin</a>
                         </p>
                     </div>
+                    
                 </div>
                 <!-- END COPYRIGHT -->  
                    

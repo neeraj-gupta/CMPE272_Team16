@@ -4,7 +4,8 @@ var express = require('express')
   , path = require('path')
   , uDetails=require('./routes/uDetails')
   , profileForm = require('./routes/porfileForm')
-  , professorReviewForm = require('./routes/professorReviews');
+  , professorReviewForm = require('./routes/professorReviews')
+  , visaImmigration=require('./routes/visaImmigration');
 
 var app = express();
 
@@ -29,6 +30,9 @@ app.get('/home', index.index);
 app.get('/profiler', index.profiler);
 app.get('/professorReviews', index.profreview);
 app.get('/immigration', index.immigration);
+app.get('/immigrationDetail', index.immigrationDetail);
+app.get('/viQuestions', index.viQuestions);
+app.get('/ds160faqs', index.ds160faqs);
 
 app.get('/gradSchool', uDetails.getUniversityList);
 app.get('/universityDetails',uDetails.getUniversityDetails);
@@ -36,6 +40,11 @@ app.get('/gradSchoolFinder',profileForm.profile);
 app.post('/getList',profileForm.getListOfUniversities);
 app.get('/professorReviews',professorReviewForm.professorReviews);
 app.post('/getProfessorReviews',professorReviewForm.getProfessorReviews);
+
+// Visa Stats
+app.get('/immigrationDocuments',visaImmigration.immigrationDocInfo);
+
+app.post('/search', index.search);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

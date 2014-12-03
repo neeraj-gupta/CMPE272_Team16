@@ -74,6 +74,12 @@
         
         <!-- CUSTOM JAVASCRIPT -->                           
         <script type="text/javascript" src="js/jquery.custom.js"></script>
+        
+        <script type='text/javascript'>
+        	function callNext(){
+        		
+        	}
+        </script>
     </head>
     
     <body class="image-sphere-style responsive">
@@ -89,8 +95,8 @@
                 
                     <!-- START LOGO -->
                     <div id="logo" class="group">
-                        <a href="index.html" title="Diverso"> 
-                        <img src="images/logo.png" alt="Logo Diverso" />
+                        <a href="home" title="Fly US"> 
+                        <img src="images/logo.png" alt="Fly US" />
                         </a>              
                     </div>
                     <!-- END LOGO -->
@@ -120,13 +126,11 @@
                             <li class="burst">
                                 <a href="immigration">Immigration</a>
                                 <ul class="sub-menu">
-                                    <li><a href="shortcode-nivo-slider.html">Nivo Slider</a></li>
-                                    <li><a href="shortcode-media-widgets.html">Media &#038; Widgets</a></li>
-                                    <li><a href="shortcode-alert-box-buttons.html">Alert box &#038; buttons</a></li>
-                                    <li><a href="shortcode-icon-sections.html">Icon Sections</a></li>
-                                    <li><a href="shortcode-table-box-prices.html">Table &#038; Box prices</a></li>
-                                    <li><a href="shortcode-typography.html">Typography</a></li>
-                                    <li><a href="shortcode-mix-various.html">Mix &#038; Various</a></li>
+                                    <li><a href="">Visa Information</a></li>
+	                                <li><a href="">Forms</a></li>
+	                                <li><a href="viQuestions">Sample Visa Questions</a></li>
+	                                <li><a href="ds160faqs">visa Types</a></li>
+	                                <li><a href="">To Do</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -170,7 +174,8 @@
 		                                </tr>
 	                                <% }) %>
 	                            </tbody>
-	                        </table>  
+	                        </table>
+	                        <div id='next' class='button' onclick="callNext();">next</div>
                         <% } else { %>
                         	<table style="width:80%" cellpadding="0" cellspacing="0" class="short-table blue">
 	                            <thead>

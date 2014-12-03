@@ -95,12 +95,6 @@
                     </div>
                     <!-- END LOGO -->
                     
-                    <!-- START SEARCH -->
-                    <div id="search" class="group">
-                    	<input type="text" class="txtbox" />
-                    	<a href="#" class="small blue button">Search</a>
-                    </div>   
-                    <!-- END SEARCH -->
                     
                     <!-- START NAV -->
                     <div id="nav" class="group">
@@ -120,13 +114,11 @@
                             <li class="burst">
                                 <a href="immigration">Immigration</a>
                                 <ul class="sub-menu">
-                                    <li><a href="shortcode-nivo-slider.html">Nivo Slider</a></li>
-                                    <li><a href="shortcode-media-widgets.html">Media &#038; Widgets</a></li>
-                                    <li><a href="shortcode-alert-box-buttons.html">Alert box &#038; buttons</a></li>
-                                    <li><a href="shortcode-icon-sections.html">Icon Sections</a></li>
-                                    <li><a href="shortcode-table-box-prices.html">Table &#038; Box prices</a></li>
-                                    <li><a href="shortcode-typography.html">Typography</a></li>
-                                    <li><a href="shortcode-mix-various.html">Mix &#038; Various</a></li>
+                                    <li><a href="">Visa Information</a></li>
+	                                <li><a href="">Forms</a></li>
+	                                <li><a href="">Sample Visa Questions</a></li>
+	                                <li><a href="">Visa Types</a></li>
+	                                <li><a href="">To Do</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -184,57 +176,23 @@
                     
                     <!-- START SIDEBAR -->
                     <div id="sidebar" class="group">
-                        
                         <div class="widget-first widget more_projects">
-                            <h3>Featured Projects</h3>
+                            <h3>Featured Schools</h3>
                             <div class="more-projects-widget">
-                            
                                 <div class="top"><a class="prev" href="#">Prev</a></div>
-                                
                                 <div class="sliderWrap">
                                     <ul>
-                                    
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/00161-86x86.jpg" alt="0016" title="0016" /></a>
-                                            <a class="meta work-title" href="#">Kassyopea Theme</a>
-                                            <p class="meta categories"><a href="#">web design</a></p>
-                                        </li>
-                                        
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0024-86x86.jpg" alt="0024" title="0024" /></a>
-                                            <a class="meta work-title" href="#">Olìmpo</a>
-                                            <p class="meta categories"><a href="#">restyling</a>, <a href="#">web design</a></p>
-                                        </li>
-                                        
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0041-86x86.jpg" alt="0041" title="0041" /></a>
-                                            <a class="meta work-title" href="#">Coffee Break</a>
-                                            <p class="meta categories"><a href="#">logo design</a></p>
-                                        </li>
-                                        
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0061-86x86.jpg" alt="0061" title="0061" /></a>
-                                            <a class="meta work-title" href="#">Tiramisu video</a>
-                                            <p class="meta categories"><a href="#">logo design</a>, <a href="#">web design</a></p>
-                                        </li>
-                                        
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/Fotolia_28180973_Subscription_XL-86x86.jpg" alt="Fotolia_28180973_Subscription_XL" title="Fotolia_28180973_Subscription_XL" /></a>
-                                            <a class="meta work-title" href="#">Kalysphèra</a>
-                                            <p class="meta categories"><a href="#">logo design</a>, <a href="#">web design</a></p>
-                                        </li>
-                                        
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0016-86x86.jpg" alt="0016" title="0016" /></a>
-                                            <a class="meta work-title" href="#">Impero Brand</a>
-                                            <p class="meta categories"><a href="#">logo design</a></p>
-                                        </li>
-                                        
-                                        <li class="work-item group">
-                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/00241-86x86.jpg" alt="0024" title="0024" /></a>
-                                            <a class="meta work-title" href="#">Brand: Food In Love</a>
-                                            <p class="meta categories"><a href="#">logo design</a></p>
-                                        </li>
+                                    	<% if(result.length > 0 && error == ''){ %>
+											<% result.forEach(function(resp){ %>
+												 <li class="work-item group">
+		                                            <a class="work-thumb" href="#"><img src="images/university.jpg" alt="0016" title="0016" /></a>
+		                                            <a class="meta work-title" href="#"><%= resp.uname %></a>
+		                                            <p class="meta categories"><%= resp.website %></p>
+		                                        </li>
+											<% }) %>
+										<% } else { %>
+											<%= error %>
+										<%}%>
                                     </ul>
                                 </div>
                                 <div class="controls"><a class="next" href="#">Next</a></div>
