@@ -1,0 +1,27 @@
+<html>
+<head>
+<h1>Professor Reviews</h1>
+</head>
+<body>
+<table>
+<tr>
+<td>Professor Name</td>
+<td>Class Rating</td>
+<td>Overall Rating(Out of 5)</td>
+</tr>
+<%professorResults.forEach(function(professor){%>
+<tr>
+<td>
+<%=professor.tFname + " " + professor.tLname%>
+</td>
+<td>
+<%=professor.rating_class%>
+</td>
+<td>
+<%=professor.overall_rating%>
+</td>
+</tr>
+<%})%>
+</table>
+</body>
+</html>
