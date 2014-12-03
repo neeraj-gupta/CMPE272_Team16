@@ -2,9 +2,7 @@
  * New node file
  */
 exports.professorReviews = function(req, res) {
-
 	res.render('professorReviews');
-
 }
 
 exports.getProfessorReviews = function(req, res) {
@@ -14,40 +12,32 @@ exports.getProfessorReviews = function(req, res) {
 	
 	if(departmentName!==null || !departmentName.length<1){
 		
-		var deptArray=departmentName.split(" ");
-		var departmentUrl=""
+		var deptArray = departmentName.split(" ");
+		var departmentUrl = "";
 			
-			for (var i = 0; i < deptArray.length; i++) {
+		for (var i = 0; i < deptArray.length; i++) {
 
-				if (i < deptArray.length - 1) {
-					departmentUrl = departmentUrl + deptArray[i] + "+";
-					console.log(departmentUrl);
-				} else {
+			if (i < deptArray.length - 1) {
+				departmentUrl = departmentUrl + deptArray[i] + "+";
+				console.log(departmentUrl);
+			} else {
 
-					departmentUrl = departmentUrl + deptArray[i];
-					console.log(departmentUrl);
-
-				}
-
+				departmentUrl = departmentUrl + deptArray[i];
+				console.log(departmentUrl);
 			}
-			
+		}
 	}
     
-	var universityUrl = ""
+	var universityUrl = "";
 		
-
 	for (var i = 0; i < univArray.length; i++) {
-
 		if (i < univArray.length - 1) {
 			universityUrl = universityUrl + univArray[i] + "+";
 			console.log(universityUrl);
 		} else {
-
 			universityUrl = universityUrl + univArray[i];
 			console.log(universityUrl);
-
 		}
-
 	}
 
 	var Client = require('node-rest-client').Client;
@@ -57,20 +47,14 @@ exports.getProfessorReviews = function(req, res) {
 
 	console.log(url);
 	client.get(url, function(data, response) {
-
 		// console.log(data);
 		var prof = [];
 		prof = data.professors;
-		// console.log(prof);
 		prof.forEach(function(professor) {
 			console.log(professor.tFname);
 		});
-		// console.log(data[0]);
-		// console.log(data[0].tLname);
-		res.render('viewProfessorReviews', {
-			professorResults : prof
-		});
 
+		res.render('resultDisplay', { title : 'Professor', results : prof });
 	});
 
 }

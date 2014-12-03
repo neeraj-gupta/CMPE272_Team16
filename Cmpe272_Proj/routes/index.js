@@ -1,11 +1,16 @@
 
 exports.index = function(req, res){
-	res.render('index', { title: 'Express'});
+	res.render('index', { title: 'Home'});
 };
 
 exports.gradschool = function(req, res){
 	console.log('Grad School Landing Page');
-	res.render('gradSchool', { title: 'Graduate School', header : ""});
+	res.render('gradSchool', { title: 'Graduate School', result : "", error : ""});
+};
+
+exports.profiler = function(req, res){
+	console.log('GS Profiler Landing Page');
+	res.render('profiler', { title: 'GS Profiler', header : ""});
 };
 
 exports.profreview = function(req, res){

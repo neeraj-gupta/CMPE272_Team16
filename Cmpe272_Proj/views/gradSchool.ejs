@@ -107,33 +107,15 @@
                         <ul class="level-1 white">
                             <li class="home">
                                 <a href="home">HOME</a>
-                                <ul class="sub-menu">
-                                    <li><a href="home-version-2.html">HOME VERSION 2</a></li>
-                                    <li><a href="home-version-3.html">HOME VERSION 3</a></li>
-                                    <li><a href="home-version-4.html">HOME VERSION 4</a></li>
-                                    <li><a href="home-version-5.html">HOME VERSION 5</a></li>
-                                    <li><a href="home-version-6.html">HOME VERSION 6</a></li>
-                                </ul>
                             </li>
                             <li class="folder">
                                 <a href="gradSchool">Grad School</a>
-                                <ul class="sub-menu">
-                                    <li><a href="faq.html">Faq</a></li>
-                                    <li><a href="testimonials.html">Testimonials</a></li>
-                                    <li><a href="staff.html">Staff</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="archives.html">Archives</a></li>
-                                </ul>
                             </li>
-                            <li class="bookmark">
+                            <li class="people">
+                                <a href="profiler">Profiler</a>
+                            </li>
+                            <li class="pen">
                                 <a href="professorReviews">Professor Reviews</a>
-                                <ul class="sub-menu">
-                                    <li><a href="portfolio-3-columns.html">3 Columns</a></li>
-                                    <li><a href="portfolio-with-slider.html">With Slider</a></li>
-                                    <li><a href="portfolio-big-image.html">Big Image</a></li>
-                                    <li><a href="portfolio-full-description.html">Full Description</a></li>
-                                    <li><a href="portfolio-filterable.html">Filterable</a></li>
-                                </ul>
                             </li>
                             <li class="burst">
                                 <a href="immigration">Immigration</a>
@@ -158,7 +140,7 @@
                 
                     <!-- SLOGAN --> 
                     <div id="slogan" class="inner">
-                        <h1 class="only">Enjoy some of my recent work.</h1>
+                        <h1 class="only">University</h1>
                     </div>         
                     <!-- END SLOGAN --> 
                 
@@ -166,69 +148,34 @@
                     <div id="primary" class="hentry group wrapper-content portfolio-post" role="main">
                     
                         <div class="post_header portfolio_header group">
-                            <img alt="004" class="internal" src="images/portfolio/full-description/001.jpg" />
-                            <h2>Profile</h2>
+                            <img alt="004" class="internal" src="images/portfolio/full-description/009-thumb.jpg" />
+                            <h2>Education & School</h2>
                         </div>
                 
                         <div class="post_content group">
                             <div class="work-skillsdate">
-                                <p class="skills"><span class="label">Skills:</span> PHP, Worpress, Html</p>
-                                <p class="workdate"><span class="label">Date:</span> September 2, 2011</p>
+                                <p class="skills"><span class="label">Search for universities here:</span></p>
                             </div>
                 
                             <div>
-                            	<form name="profile" action="getList" method="post">
-									<table>
-										<tr>
-											<td>GRE VERBAL SCORE</td>
-											<td>	<input type="text" id="gre_verbal_score" name="gre_verbal_score" /></td>
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td>GRE QUANT SCORE</td>
-											<td><input type="text" id="gre_quant_score" name="gre_quant_score" /></td>
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td>TOEFL SCORE</td>
-											<td><input type="text" id="toefl_score" name="toefl_score"/></td>
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td>GPA</td>
-											<td><input type ="text" id="gpa" name="gpa"/></td>
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td>JOB EXPERIENCE (IN YEARS)</td>
-											<td><select id="experience" name="experience">
-												<option value="5+"> Greater than 5</option>
-												<option value="3-5">3-5</option>
-												<option value="1-5">1-3</option>
-												<option value="0">Less than 1</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td>PAPERS PUBLISHED</td>
-											<td><input type="text" id="papers" name="papers"/></td>
-										</tr>
-										<tr>
-										</tr>
-										<tr>
-											<td>	
-												<input type="submit" value="submit"/>
-											</td>
-											<td>
-												<input type="reset" value="reset"/>
-											</td>
-										</tr>
-									</table>
-                            	</form>
+								<table>
+									<tr class='table-row'>
+									    <th>S.No.</th>
+									    <th>University Name</th>
+									</tr>
+									<tr>
+									</tr>
+									<% if(result.length > 0 && error == ''){ %>
+										<% result.forEach(function(resp){ %>
+											<tr>
+												<td><%= resp.id %></td>
+												<td><a href="universityDetails?id=<%= resp.id %>"><%= resp.uname %></a></td>
+											</tr>
+										<% }) %>
+									<% } else { %>
+										<%= error %>
+									<%}%>
+								</table>
                             </div>
                         </div>
                         

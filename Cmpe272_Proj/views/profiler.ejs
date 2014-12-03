@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
-    <!--<![endif]-->
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         
-        <title>CMPE 272</title>
+        <title><%= title%></title>
         
         <link rel="stylesheet" type="text/css" media="all" href="stylesheets/style.css" />
         <link rel="stylesheet" type="text/css" media="screen and (max-width: 960px)" href="stylesheets/lessthen800.css" />
@@ -77,13 +76,13 @@
         <script type="text/javascript" src="js/jquery.custom.js"></script>
     </head>
     
-    <body class="home image-sphere-style responsive">
+    <body class="image-sphere-style responsive">
     
         <!-- START SHADOW WRAPPER -->
         <div class="shadowBg group">
             
             <!-- START WRAPPER -->
-            <div class="wrapper group">	
+            <div class="wrapper group">
                  
                 <!-- START HEADER -->
                 <div id="header" class="group">
@@ -94,12 +93,14 @@
                         <img src="images/logo.png" alt="Logo Diverso" />
                         </a>              
                     </div>
-                    <!-- END LOGO -->   
+                    <!-- END LOGO -->
                     
+                    <!-- START SEARCH -->
                     <div id="search" class="group">
                     	<input type="text" class="txtbox" />
                     	<a href="#" class="small blue button">Search</a>
-                    </div>
+                    </div>   
+                    <!-- END SEARCH -->
                     
                     <!-- START NAV -->
                     <div id="nav" class="group">
@@ -130,150 +131,174 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- END NAV -->   
+                    <!-- END NAV -->
                 </div>
                 <!-- END HEADER -->        
         
-                <!-- BEGIN #slider -->                  
+                <!-- START CONTENT -->
+                <div id="content" class="layout-sidebar-right group">
                 
-				<div class="nivo-slider" style="width:558px; height:131px">
-					<img src="images/nivo-slider/001.jpg" alt="1" />
-					<img src="images/nivo-slider/002.jpg" alt="2" />
-					<img src="images/nivo-slider/003.jpg" alt="3" />
-					<img src="images/nivo-slider/004.jpg" alt="4" />
-					<img src="images/nivo-slider/005.jpg" alt="5" />
-					<img src="images/nivo-slider/006.jpg" alt="6" />
-					<img src="images/nivo-slider/007.jpg" alt="7" />
-					<img src="images/nivo-slider/008.jpg" alt="8" />
-					<img src="images/nivo-slider/009.jpg" alt="9" />
-				</div>
-				
-				<script type="text/javascript">
-					jQuery(document).ready(function($){
-						if( !jQuery().nivoSlider ) {
-							$.getScript(' js/jquery.nivo.slider.pack.js ', function(){
-									
-								$('.nivo-slider').nivoSlider({
-									effect: 'random',
-									directionNav:false
-								});
-					
-							});
-						} else {
-							$('.nivo-slider').nivoSlider({
-								effect: 'random',
-								directionNav:false
-							});
-						}
-					});
-				</script>
-                <!-- END #slider -->
+                    <!-- SLOGAN --> 
+                    <div id="slogan" class="inner">
+                        <h1 class="only">Enjoy some of my recent work.</h1>
+                    </div>         
+                    <!-- END SLOGAN --> 
                 
-                <!-- HOME SECTIONS -->   
-                <div class="home-sections">
-                    <!-- SECTION #1 -->
-                    <div class="section gradient s-1 group">
-                        <div class="section-title for-not-mobile">
-                            <h2>About</h2>
-                        </div>
-                        <div class="section-content">
-                            <h2 class="for-mobile">About</h2>
-                            <h3>DI’VERSO <span>is a creative agency.</span></h3>
-                            <h4>We create a beautiful, original, <span>amazing things.</span></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur <strong>adipiscing</strong> elit. Donec vel dui ut augue tempus condimentum. In erat risus, pulvinar ac pulvinar adipiscing, vestibulum eget quam. Aenean molestie viverra ante at tincidunt. <strong>Etiam rhoncus elementum</strong> ultricies. ecenas volutpat ornare auctor. In non orci nec lacus imperdiet aliquet. Curabitur eleifend nulla ut augue.</p>
-                        </div>
-                        <div class="shadow"></div>
-                    </div>               
-                    <!-- END SECTION #1 -->
+                    <!-- START PRIMARY -->
+                    <div id="primary" class="hentry group wrapper-content portfolio-post" role="main">
                     
-                    <!-- SECTION #2 -->
-                    <div class="section gradient s-2 group">
-                        <div class="section-title for-not-mobile">
-                            <h2>Services</h2>
+                        <div class="post_header portfolio_header group">
+                            <img alt="004" class="internal" src="images/portfolio/full-description/001.jpg" />
+                            <h2>Profile</h2>
                         </div>
-                        <div class="section-content">
-                            <div class="tabs-container">
-                                <ul class="tabs">
-                                    <li>
-                                        <h4><a href="#gradschool" title="Grad School Finder">Grad School Finder</a></h4>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#profiler" title="Profiler">Profiler</a></h4>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#profreview" title="Professor Reviews">Professor Reviews</a></h4>
-                                    </li>
-                                    <li>
-                                        <h4><a href="#immigration" title="Immigration">Immigration</a></h4>
-                                    </li>
-                                </ul>
-                                <div class="border-box group">
-                                    
-                                    <div id="gradschool" class="panel group">
-                                        <img src="images/sections/brand.png" alt="" class="alignleft" />
-                                        <h3>Graduate School Search</h3>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel dui ut 
-                                            augue tempus condimentum., vestibulum eget quam. Aenean molestie viverra ante 
-                                            at tincidunt. Etiam rhoncus elementum ultricies. ecenas volutpat seori ornare auctor.
-                                        </p>
-                                    </div>
-                                    
-                                    <div id="profiler" class="panel group">
-                                        <img src="images/sections/foto.png" alt="" class="alignright" />
-                                        <h3>Student Profiler</h3>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel dui ut 
-                                            augue tempus condimentum., vestibulum eget quam. Aenean molestie viverra ante at tincidunt.
-                                        </p>
-                                    </div>
-                                    
-                                    <div id="profreview" class="panel group">
-                                        <img src="images/sections/foto.png" alt="" class="alignright" />
-                                        <h3>Professor Reviews</h3>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel dui ut 
-                                            augue tempus condimentum., vestibulum eget quam. Aenean molestie viverra ante at tincidunt.
-                                        </p>
-                                    </div>
-                                    
-                                    <div id="immigration" class="panel group">
-                                        <img src="images/sections/adv.png" alt="" class="alignleft" />
-                                        <h3>Immigration & Visa</h3>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel dui ut 
-                                            augue tempus condimentum., vestibulum eget quam. Aenean molestie viverra ante 
-                                            at tincidunt. Etiam rhoncus elementum ultricies. ecenas volutpat seori ornare auctor.
-                                        </p>
-                                    </div>                                    
-                                </div>
+                
+                        <div class="post_content group">
+                            <div class="work-skillsdate">
+                                <p class="skills"><span class="label">Skills:</span> PHP, Worpress, Html</p>
+                                <p class="workdate"><span class="label">Date:</span> September 2, 2011</p>
+                            </div>
+                
+                            <div>
+                            	<form name="profile" action="getList" method="post">
+									<table>
+										<tr>
+											<td>GRE VERBAL SCORE</td>
+											<td>	<input type="text" id="gre_verbal_score" name="gre_verbal_score" /></td>
+										</tr>
+										<tr>
+										</tr>
+										<tr>
+											<td>GRE QUANT SCORE</td>
+											<td><input type="text" id="gre_quant_score" name="gre_quant_score" /></td>
+										</tr>
+										<tr>
+										</tr>
+										<tr>
+											<td>TOEFL SCORE</td>
+											<td><input type="text" id="toefl_score" name="toefl_score"/></td>
+										</tr>
+										<tr>
+										</tr>
+										<tr>
+											<td>GPA</td>
+											<td><input type ="text" id="gpa" name="gpa"/></td>
+										</tr>
+										<tr>
+										</tr>
+										<tr>
+											<td>JOB EXPERIENCE (IN YEARS)</td>
+											<td><select id="experience" name="experience">
+												<option value="5+"> Greater than 5</option>
+												<option value="3-5">3-5</option>
+												<option value="1-5">1-3</option>
+												<option value="0">Less than 1</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>PAPERS PUBLISHED</td>
+											<td><input type="text" id="papers" name="papers"/></td>
+										</tr>
+										<tr>
+										</tr>
+										<tr>
+											<td>	
+												<input type="submit" value="submit"/>
+											</td>
+											<td>
+												<input type="reset" value="reset"/>
+											</td>
+										</tr>
+									</table>
+                            	</form>
                             </div>
                         </div>
-                        <div class="shadow"></div>
-                    </div>              
-                    <!-- END SECTION #2 -->
+                        
+                    </div>
+                    <!-- END CONTENT -->        
                     
-                </div>   
-                <!-- END HOME SECTIONS -->   
-       
+                    <!-- START SIDEBAR -->
+                    <div id="sidebar" class="group">
+                        
+                        <div class="widget-first widget more_projects">
+                            <h3>Featured Projects</h3>
+                            <div class="more-projects-widget">
+                            
+                                <div class="top"><a class="prev" href="#">Prev</a></div>
+                                
+                                <div class="sliderWrap">
+                                    <ul>
+                                    
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/00161-86x86.jpg" alt="0016" title="0016" /></a>
+                                            <a class="meta work-title" href="#">Kassyopea Theme</a>
+                                            <p class="meta categories"><a href="#">web design</a></p>
+                                        </li>
+                                        
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0024-86x86.jpg" alt="0024" title="0024" /></a>
+                                            <a class="meta work-title" href="#">Olìmpo</a>
+                                            <p class="meta categories"><a href="#">restyling</a>, <a href="#">web design</a></p>
+                                        </li>
+                                        
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0041-86x86.jpg" alt="0041" title="0041" /></a>
+                                            <a class="meta work-title" href="#">Coffee Break</a>
+                                            <p class="meta categories"><a href="#">logo design</a></p>
+                                        </li>
+                                        
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0061-86x86.jpg" alt="0061" title="0061" /></a>
+                                            <a class="meta work-title" href="#">Tiramisu video</a>
+                                            <p class="meta categories"><a href="#">logo design</a>, <a href="#">web design</a></p>
+                                        </li>
+                                        
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/Fotolia_28180973_Subscription_XL-86x86.jpg" alt="Fotolia_28180973_Subscription_XL" title="Fotolia_28180973_Subscription_XL" /></a>
+                                            <a class="meta work-title" href="#">Kalysphèra</a>
+                                            <p class="meta categories"><a href="#">logo design</a>, <a href="#">web design</a></p>
+                                        </li>
+                                        
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/0016-86x86.jpg" alt="0016" title="0016" /></a>
+                                            <a class="meta work-title" href="#">Impero Brand</a>
+                                            <p class="meta categories"><a href="#">logo design</a></p>
+                                        </li>
+                                        
+                                        <li class="work-item group">
+                                            <a class="work-thumb" href="#"><img src="images/various/more-project-widget/00241-86x86.jpg" alt="0024" title="0024" /></a>
+                                            <a class="meta work-title" href="#">Brand: Food In Love</a>
+                                            <p class="meta categories"><a href="#">logo design</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="controls"><a class="next" href="#">Next</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR -->  
+                    
+                </div>
+                <!-- END CONTENT -->        
+
                 <!-- START TWITTER -->
                 <div id="twitter-slider" class="group">
                     <div class="tweets-list"></div>
                     <div class="bird"></div>
                 </div>
                 <!-- END TWITTER -->   
+                
                            
                 <!-- START COPYRIGHT -->
                 <div id="copyright" class="group two-columns">
                     <div class="inner group">
-                        <p class="left">Copyright <a href="#"><strong>Team 16</strong></a> 2014 - Powered by Dragons</p>
+                        <p class="left">Copyright <a href="#"><strong>Team 16</strong></a> 2014 - Powered by <strong>Dragons</strong></a></p>
                         <p class="right">
                             <a href="#" class="socials facebook" title="Facebook">facebook</a>
                             <a href="#" class="socials twitter" title="Twitter">twitter</a>
                             <a href="#" class="socials linkedin" title="Linkedin">linkedin</a>
                         </p>
                     </div>
-                    
                 </div>
                 <!-- END COPYRIGHT -->  
                    

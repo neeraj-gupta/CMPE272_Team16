@@ -5,7 +5,7 @@ exports.profile=function(req,res){
 	res.render('ProfileForm');
 };
 
-exports.getListOfUniversities=function(req,res){
+exports.getListOfUniversities = function(req,res){
 	
 	var profileForm = [];
 	var total = 0;
@@ -63,7 +63,7 @@ exports.getListOfUniversities=function(req,res){
 			
 			if(results.length > 0){
 				var resultStr = JSON.parse(JSON.stringify(results));
-				res.render('university_Res', { title : 'Universities', results : resultStr});
+				res.render('resultDisplay', { title : 'University', results : resultStr});
 			} else {
 				console.log("Invalid form");
 				res.end();

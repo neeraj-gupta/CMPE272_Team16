@@ -2,6 +2,7 @@ var express = require('express')
   , index = require('./routes/index')
   , http = require('http')
   , path = require('path')
+  , uDetails=require('./routes/uDetails')
   , profileForm = require('./routes/porfileForm')
   , professorReviewForm = require('./routes/professorReviews');
 
@@ -25,10 +26,12 @@ if ('development' === app.get('env')) {
 
 app.get('/', index.index);
 app.get('/home', index.index);
-app.get('/gradSchool', index.gradschool);
+app.get('/profiler', index.profiler);
 app.get('/professorReviews', index.profreview);
 app.get('/immigration', index.immigration);
 
+app.get('/gradSchool', uDetails.getUniversityList);
+app.get('/universityDetails',uDetails.getUniversityDetails);
 app.get('/gradSchoolFinder',profileForm.profile);
 app.post('/getList',profileForm.getListOfUniversities);
 app.get('/professorReviews',professorReviewForm.professorReviews);

@@ -91,7 +91,7 @@ body .last, body .widget-last { margin-right:0; border-right:0; }
 /* ==== Widths, heights, floats and margins of all basic sections === */
 #header 	{ position:relative; }
 #logo       { float:left; margin:30px 0 30px 20px; }
-#search		{ float:left; margin-left:80px; margin-top:50px;}
+#search		{ float:left; margin-left:50px; margin-top:50px;}
 #nav 		{ float:right;  }
 #slogan 	{ margin:2em 0; }
 #slider 	{  }
@@ -129,7 +129,7 @@ body .last, body .widget-last { margin-right:0; border-right:0; }
 #topbar .theme_breadcumb a.no-link {cursor:default;}  
 
 /* Search box*/
-#search .txtbox{boreder-radius:1px; width:150px; height:20px; background-color:#dad5d5; cursor:default; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}  
+#search .txtbox{width:150px; height:20px; background-color:#dad5d5; cursor:default; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}  
 
 /* navigation */
 #nav { font-family:Verdana, Tahoma, Arial, san-serif;  }
