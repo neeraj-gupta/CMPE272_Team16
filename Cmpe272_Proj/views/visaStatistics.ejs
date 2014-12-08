@@ -1,139 +1,228 @@
-<html>
-<head>
-	<link rel="stylesheet" id="jquery-tipsy-css" href="stylesheets/jquery.jqplot.css" type="text/css" media="all" />
-    <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
-	<script type="text/javascript">
-		function graph() {	
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <title><%= title%></title>
+        
+        <link rel="stylesheet" type="text/css" media="all" href="stylesheets/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 960px)" href="stylesheets/lessthen800.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="stylesheets/lessthen600.css" />
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 480px)" href="stylesheets/lessthen480.css" />
+                                   
+        <!-- CUSTOM STYLE -->                                                                        
+        <link rel="stylesheet" type="text/css" media="all" href="stylesheets/custom-style.css" />
+        
+        <!-- [favicon] begin -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- [favicon] end -->  
+        
+        <!-- MAIN FONT STYLE -->  
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A400&amp;subset=latin%2Ccyrillic%2Cgreek" type="text/css" media="all" />      
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans" type="text/css" media="all" />      
+	    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C400" type="text/css" media="all" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed%3A300%7CPlayfair+Display%3A400italic" type="text/css" media="all" />
+        <!-- END MAIN FONT STYLE -->  
+        
+        <link rel="stylesheet" id="prettyPhoto-css" href="stylesheets/prettyPhoto.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="jquery-tipsy-css" href="stylesheets/tipsy.css" type="text/css" media="all" />
+        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+        <script type="text/javascript" src="js/jquery.tipsy.js"></script>
+        <script type="text/javascript" src="js/jquery.tweetable.js"></script>        
+        <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>  
+        <script type="text/javascript" src="js/jquery.flexslider.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.min.js"></script>  
+        
+        <!-- for accordion slider in staff page -->
+        <script type="text/javascript" src="js/jquery.hrzAccordion.js"></script>  
+        
+        <!-- for filterable effect in gallery and portfolio filterable page -->
+        <script type="text/javascript" src="js/jquery.quicksand.js"></script>  
+        
+        <!-- for portfolio slider -->
+        <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
+        
+        <!-- for the contact page -->
+        <script type="text/javascript" src="js/contact.js"></script>  
+        
+        <!-- SLIDER ELASTIC -->                                                               
+        <link rel="stylesheet" id="slider-elastic-css" href="stylesheets/slider-elastic.css" type="text/css" media="all" />
+        <script type="text/javascript" src="js/jquery.eislideshow.js"></script>
+        
+        <!-- SLIDER CYCLE -->                                                               
+        <link rel="stylesheet" id="slider-cycle-css" href="stylesheets/slider-cycle.css" type="text/css" media="all" />
+        <script type="text/javascript" src="js/jquery.slides.min.js"></script>
+        
+        <!-- SLIDER THUMBNAILS -->                                                               
+        <link rel="stylesheet" id="slider-thumbnails-css" href="stylesheets/slider-thumbnails.css" type="text/css" media="all" />
+        <script type="text/javascript" src="js/jquery.aw-showcase.js"></script>
+        
+        <!-- SLIDER FLASH -->                                                               
+        <script type="text/javascript" src="js/swfobject.js"></script>      
+        
+        <!-- SLIDER ELEGANT -->                                                               
+        <link rel="stylesheet" id="slider-elegant-css" href="stylesheets/slider-elegant.css" type="text/css" media="all" />
+        
+        <!-- SLIDER NIVO -->                                                               
+        <link rel="stylesheet" id="slider-nivo-css" href="stylesheets/slider-nivo.css" type="text/css" media="all" />     
+        
+        <!-- CUSTOM JAVASCRIPT -->                           
+        <script type="text/javascript" src="js/jquery.custom.js"></script>
+        <script type="text/javascript">
+        	function call(){
+        		var country = $('#universityName').val();
+        		$.ajax({
+			        url : '/visaStats?country='+country,
+			        type : 'POST',
+			        success : function(data) {
+			        	//alert('data : ' + data);
+			        	if(data.length > 0)
+			        		$('#result').html(data);
+			        	else
+			        		$('#result').html("No Data Found");	
+			        },
+			        error: function(jqXHR, textStatus, errorThrown) {
+			            alert('error ' + textStatus + " " + errorThrown);
+			        }
+			    });
+        	}
+        </script>
+    </head>
+    
+    <body class="image-sphere-style responsive">
+    
+        <!-- START SHADOW WRAPPER -->
+        <div class="shadowBg group">
+            
+            <!-- START WRAPPER -->
+            <div class="wrapper group">
+                 
+                <!-- START HEADER -->
+                <div id="header" class="group">
+                
+                    <!-- START LOGO -->
+                    <div id="logo" class="group">
+                        <a href="index" title="flyUS"> 
+                        <img src="images/edu.jpeg" width = "200" height = "60" alt="EducationUSA" />
+                        </a>              
+                    </div>
+                    <!-- END LOGO -->
+                    
+                    <!-- START NAV -->
+                    <div id="nav" class="group">
+                        <ul class="level-1 white">
+                            <li class="home">
+                                <a href="home">HOME</a>
+                            </li>
+                            <li class="folder">
+                                <a href="gradSchool">Grad School</a>
+                            </li>
+                            <li class="people">
+                                <a href="profiler">Profiler</a>
+                            </li>
+                            <li class="pen">
+                                <a href="professorReviews">Professor Reviews</a>
+                            </li>
+                            <li class="burst">
+                                <a href="immigration">Immigration</a>
+                                <ul class="sub-menu">
+                                    <li><a href="visaStatsInd">Visa Stats</a></li>
+	                                <li><a href="viQuestions">Sample Visa Questions</a></li>
+	                                <li><a href="ds160faqs">Visa Types</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END NAV -->
+                </div>
+                <!-- END HEADER -->        
+        
+                <!-- START CONTENT -->
+                <div id="content" class="layout-sidebar-right group">
+                
+                    <!-- SLOGAN --> 
+                    <div id="slogan" class="inner">
+                        <h1 class="only"><%= header%></h1>
+                    </div>         
+                    <!-- END SLOGAN --> 
+                
+                    <!-- START PRIMARY -->
+                    <div id="primary" class="hentry group wrapper-content" role="main">
+	                    
+						<h1>Visa Stats By Country</h1>
+                        
+                        	<input type="hidden" id="pageNumber" name="pageNumber" value="1"/>
+							<table>
+								<tr>
+									<td>
+										Country Name (*)<input type="text" id="universityName" name="universityName"/>
+									</td>
+								</tr>
+								<tr>
+								</tr>
+								<tr>
+									<td>
+										<input id='btn' type="submit" value="Submit" onclick="call();"/>
+									</td>
+								</tr>
+							</table>
 						
-			var graphCanvas = document.getElementById('graphSpace');
-			// Ensure that the element is available within the DOM
-			if (graphCanvas && graphCanvas.getContext) {
-				// Open a 2D context within the canvas
-				var context = graphCanvas.getContext('2d');
-
-				// Bar chart data
-				var data=new Array(5);
-				data[0] = "<%=results[0]%>";
-				data[1]="<%=results[1]%>";
-				data[2]="<%=results[2]%>";
-				data[3]="<%=results[3]%>";
-				data[4]="<%=results[4]%>";
-				//alert(data[0]);
-				
-				// Draw the bar chart
-				drawBarChart(context, data, 100, 100, 500, 500);
-				
-				//drawLineChart(data, 'visa', 2010, 2014, 1000, 50000, '');
-			}
-		}
-		
-		// drawBarChart - draws a bar chart with the specified data
-		function drawBarChart(context, data, startX, barWidth, chartHeight, markDataIncrementsIn) {
-			// Draw the x and y axes
-			context.lineWidth = "1.0";
-			var startY = chartHeight;
-			drawLine(context, startX, startY, startX, 30); 
-			drawLine(context, startX, startY, 570, startY);			
-			context.lineWidth = "0.0";
-			var maxValue = 5000;
-			for (var i=0; i<data.length; i++) {
-				// Extract the data
-				var values = data[i].split(",");
-				var name = values[0];
-				var height = parseInt(values[1]);
-				
-				//if (parseInt(height) > parseInt(maxValue)) maxValue = height;
-				// Write data to chart
-				context.fillStyle = "#b90000";
-				drawRectangle(context, startX + (i * barWidth) + i, (chartHeight-(height/100)), barWidth, height, true);
-				// Add the column title to the x-axis
-				context.textAlign = "left";
-				context.fillStyle = "#000";
-				context.fillText(name, startX + (i * barWidth) + i, chartHeight , 200);				
-			}
-			// Add some data markers to the y-axis
-			var numMarkers = Math.ceil(maxValue / markDataIncrementsIn);
-			
-			context.textAlign = "right";
-			context.fillStyle = "#000";
-			var markerValue = 0;
-			for (var i=0; i<numMarkers; i++) {		
-				context.fillText(markerValue, startX-10, chartHeight-markerValue, 70);
-				markerValue += markDataIncrementsIn;
-			}
-		}		
-		
-		// drawLine - draws a line on a canvas context from the start point to the end point 
-		function drawLine(contextO, startx, starty, endx, endy) {
-			contextO.beginPath();
-			contextO.moveTo(startx, starty);
-			contextO.lineTo(endx, endy);
-			contextO.closePath();
-			contextO.stroke();
-		}
-		
-		// drawRectanle - draws a rectangle on a canvas context using the dimensions specified
-		function drawRectangle(contextO, x, y, w, h, fill) {			
-			contextO.beginPath();
-			contextO.rect(x, y, w, h);
-			contextO.closePath();
-			contextO.stroke();
-			if (fill) contextO.fill();
-		}
-	
-	    /*function drawLineChart(seriesValues,legendValues, minYear, maxYear, minAdmit, maxAdmit, yaxisFormat){
-	        $('#graphSpace').empty();                
-	        $.jqplot('graphSpace',seriesValues,{
-	                //title:'Admission Statistics Plot',                
-	                highlighter:{
-	                    show: true,
-	                    sizeAdjust: 7.5
-	                },
-	                animate: true,                
-	                animateReplot: true,
-	                seriesColors: [ "#CC0000", "#222222"],
-	                legend: {
-	                    renderer: $.jqplot.EnhancedLegendRenderer,
-	                    show: true,
-	                    placement: 'outsideGrid',            
-	                    location: 's',
-	                    rowSpacing: '0px',
-	                    rendererOptions: {
-	                        numberRows: 1
-	                    }
-	                },
-	                series:legendValues,
-	                axes: {            
-	                    xaxis: {
-	                        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,                        
-	                        min: parseInt(minYear),
-	                        max: parseInt(maxYear),                        
-	                        //label: "Year",  
-	                        tickOptions: {
-	                            formatString: '%d'
-	                        },
-	                        tickInterval: 1,
-	                        pad:10,
-	                    },
-	                    yaxis: {
-	                        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-	                        min: parseInt(minAdmit),
-	                        max: parseInt(maxAdmit),  
-	                        //label: "Admits",
-	                        tickOptions: {
-	                            formatString: '%d'+yaxisFormat
-	                        }
-	                    }
-	                },                
-	        });
-	    }*/
-	</script>
-</head>
-
-<body onLoad="graph();"> 
-	<article>
-		<h1>Cities</h1>		
-		<canvas id="graphSpace" width="800" height="500"></canvas>		
-	</article>
-</body>
+						
+						<div id='result' name='result'>
+							
+						</div>
+					</div>
+                    <!-- END CONTENT -->
+                    
+                    <!-- START SIDEBAR -->
+                    <div id="sidebar" class="group">
+                        <div class="widget-first widget widget_nav_menu">
+                            <h3>Forms</h3>
+                            
+                            <ul class="menu">
+                                <li><a href="visaStatsInd">Visa Stats</a></li>
+                                <li><a href="viQuestions">Sample Visa Questions</a></li>
+                                <li><a href="ds160faqs">DS-160 FAQs</a></li>
+                                <li><a href="immigration">Video</a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <!-- END SIDEBAR -->      
+                    
+                </div>
+                <!-- END CONTENT -->
+        
+                <!-- START TWITTER -->
+                <div id="twitter-slider" class="group">
+                    <div class="tweets-list"></div>
+                    <div class="bird"></div>
+                </div>
+                <!-- END TWITTER -->   
+                
+                <!-- START COPYRIGHT -->
+                <div id="copyright" class="group two-columns">
+                    <div class="inner group">
+                        <p class="left">Copyright <a href="#"><strong>Team 16</strong></a> 2014 - Powered by <strong>Dragons</strong></a></p>
+                        <p class="right">
+                            <a href="#" class="socials facebook" title="Facebook">facebook</a>
+                            <a href="#" class="socials twitter" title="Twitter">twitter</a>
+                            <a href="#" class="socials linkedin" title="Linkedin">linkedin</a>
+                        </p>
+                    </div>
+                    
+                </div>
+                <!-- END COPYRIGHT -->  
+                   
+            </div>
+            <!-- END WRAPPER --> 
+        </div>
+        <!-- END SHADOW -->       
+    </body>
 </html>
