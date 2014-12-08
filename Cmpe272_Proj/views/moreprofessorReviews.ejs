@@ -1,0 +1,35 @@
+<html>
+	<head>
+	</head>
+	<body>
+	<input type="hidden" id="pageNumber" value="<%=pageNumber%>"/>
+	<table style="width:80%" cellpadding="0" cellspacing="0" class="short-table blue">
+        <thead>
+            <tr>
+                <th style="width:20%">S.No</th>               
+                <th style="width:20%">Professor Name</th>             
+                <th style="width:20%">Rating</th>              
+                <th style="width:20%">Overall Rating(Out of 5)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        	<% var i = 1 %>
+        	<%results.forEach(function(professor){%>
+                <tr>           
+                    <td><%= i++ %></td>                                       
+                    <td><%=professor.tFname + " " + professor.tLname%></td>                                
+                    <td><%=professor.rating_class%></td>              
+                    <td><%=professor.overall_rating%></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <%if(pageNumber > 1){%>
+		<input type="button" class="paging" onClick="return getPreviousReviews();" value="Previous"></input>
+	<%}%>
+    <%if(nextFlag){%>
+    	<input type="button" class="paging" onClick="return getMoreReviews();" value="Next"></input>
+    <%}%>
+    </body>
+</html>
