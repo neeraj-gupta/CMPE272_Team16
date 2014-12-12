@@ -1,6 +1,5 @@
-/**
- * New node file
- */
+var globals = require('./globals');
+
 exports.professorReviews = function(req, res) {
 	res.render('professorReviews');
 }

@@ -1,3 +1,4 @@
+var globals = require('./globals');
 var mysqlpool = require('./dbConnection/mysqlQuery');
 
 exports.index = function(req, res){
@@ -56,4 +57,9 @@ exports.ds160faqs = function(req, res){
 exports.viQuestions = function(req, res){
 	console.log('Sample Visa Interview Questions');
 	res.render('viQuestions', { title: 'Sample Visa Interview Questions', header : "Sample Visa Interview Questions"});
+};
+
+exports.scholarship = function(req,res){
+	console.log('Sample Visa Interview Questions');
+	res.render('scholarshipHome', { title: 'Scholarships', header : "Scholarships"});
 };

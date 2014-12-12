@@ -18,7 +18,7 @@ body {line-height:1.5;}
 table {border-collapse:separate; border-spacing:0;}
 caption, th, td {text-align:left;font-weight:normal;}
 table, td, th {vertical-align:middle;}
-th {color:#757475;line-height:40px;min-height:40px;text-align:center;padding:10px;font-weight:bold;}
+th {color:#757475;line-height:40px;min-height:40px;text-align:center;padding:10px;}
 blockquote:before, blockquote:after, q:before, q:after { content:""; }
 blockquote, q { quotes:"" ""; }
 a img {border:none;}
@@ -49,6 +49,9 @@ img { border:0 }
 html { min-height:100% }
 body { font-family:Calibri, 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Tahoma, Arial, san-serif; font-size:14px; line-height:1.8em; }
 
+/*Prof Result*/
+.paging{ margin-left : 30%;}
+.paging_n{ margin-left : 5%;}
 /* typography */
 p, li, address, dd, blockquote { color:#545252; font-size:1em; line-height:1.61em } 
 h1, h2, h3, h4, h5, h6, p, dl, ul, ol { margin:1em 0 0.8em; }         
@@ -1021,8 +1024,8 @@ a.button {display:inline-block;margin:0 5px 19px 0;}
         line-height:1;overflow:visible;padding:5px 15px 6px;position:relative;text-decoration:none;text-shadow:0 -1px 1px rgba(0,0,0,0.25);width:auto;}
 .orange.button {background-color:#ff5c00;}
 .orange.button:hover {background-color:#d45500;}
-.blue.button {background-color:#2daebf;}
-.blue.button:hover {background-color:#007d9a;}
+.blue.button {background-color:#2daebf; float : right; margin-right : 60px;margin-top:-30px;}
+.blue.button:hover {background-color:#007d9a;}#07558C
 .green.button {background-color:#91bd09;}
 .green.button:hover {background-color:#749a02;}
 .red.button {background-color:#e33100;}
@@ -1043,9 +1046,10 @@ a.button {display:inline-block;margin:0 5px 19px 0;}
 .toggle p.tab-index a { display:block; background:url('../images/icons/baloon.png') left top no-repeat; padding:0 0 0 32px; cursor:pointer; color:#090909; } 
 .toggle p.tab-index.tab-opened a { background:url('../images/icons/baloon-active.png') left top no-repeat; }
 .toggle p.tab-index a:hover { text-decoration:none; }  
-.toggle .content-tab { padding:8px 0 0 45px; background:url('../images/bg/toggle-arrow.png') 10px top no-repeat; min-height:35px; }
+.toggle .content-tab { padding:8px 0 0 45px; background:url('../images/bg/toggle-arrow.png') 10px top no-repeat; min-height:35px; overflow : auto;}
 .toggle .content-tab p { font-family:'Droid Sans', sans-serif !important; font-size:0.786em; color:#585555; }
 .toggle .content-tab .arrow { display:none; }
+
 
 /*tabs*/
 #content .tabs-container ul.tabs {list-style-type:none;margin:0 !important;padding:0;height:40px;position:relative;z-index:1;}
@@ -1064,10 +1068,10 @@ a.button {display:inline-block;margin:0 5px 19px 0;}
 
 /*table*/
 table {margin:1em 0 30px;border:1px solid #e0e0e0;}
-table td, table th { padding:10px 20px; text-align:left; color:#757475; }
+table td, table th { padding:5px 5px; text-align:left; color:#757475; }
 #content .post table {font-size:100%;}
-.short-table th {background:#fff;border-bottom:1px solid #e0e0e0;text-align:center;height:80px;color:#636262;font-weight:bold;}
-.short-table th.features {border-bottom:none;height:40px;line-height:40px;background-color:transparent;color:#636262;}
+.short-table th {background:#fff;border-bottom:1px solid #e0e0e0;text-align:center;height:80px;color:#636262;}
+.short-table th.features {border-bottom:none;height:30px;line-height:30px;background-color:transparent;color:#636262;}
 tr:nth-child(2n+1) {background-color:#f6f6f6;}
 #content td img {border:none;vertical-align:middle;margin:0;}
 /*red*/
@@ -1079,6 +1083,7 @@ tr:nth-child(2n+1) {background-color:#f6f6f6;}
 /*blue*/
 .short-table.blue thead th {background:#07558c;color:#fff;}
 .short-table.blue table {border:1px solid #07558c;}
+.short-table.blue.toggled {position : relative; width:80%;}
 
 /*prices table*/
 .wrapper .price-table {background:#fff url('../images/bg/tab-price-gradient.png') repeat-x;border:1px solid #d2d0d0;margin:0 0 20px}
@@ -1291,3 +1296,7 @@ html[xmlns] .slides {display: block;}
 /* home slider*/
 #slideshow { margin: 100px auto; position: relative; width: 560px; height: 330px; padding: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.4); }
 #slideshow > div { position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; }
+
+/* Table Css Generator */
+.container{ margin-left : 30%;}
+.result_sc{ float : left; margin-right : 30px;}

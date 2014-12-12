@@ -1,3 +1,4 @@
+var globals = require('./globals');
 var mysqlpool=require('./dbConnection/mysqlQuery');
 
 exports.profile=function(req,res){
