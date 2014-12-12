@@ -70,38 +70,160 @@
         
         <!-- SLIDER NIVO -->                                                               
         <link rel="stylesheet" id="slider-nivo-css" href="stylesheets/slider-nivo.css" type="text/css" media="all" />     
-        
+        <script type="text/javascript">
+        function clickButton(sid){
+	        $.ajax({
+	 				type:'GET',
+	 				url:'/viewStudentFullProfile?sid='+sid,
+	 				success:function(data){
+						$("#fullProfile").html(data);
+	 				}
+	 			});   
+	        }
+        </script>
         <!-- CUSTOM JAVASCRIPT -->                           
         <script type="text/javascript" src="js/jquery.custom.js"></script>
     </head>
     
-    <body>
-    	<form name="studentList" action="/viewStudentFullProfile" method="post">
-    		<input type="hidden" name="results" id="results" value='<%=results%>'></input>
-			<table>
-				<thead>
-					<tr>
-            			<th style="width:20%">Student Name</th> 
-            			<th style="width:20%">Country</th>               
-            			<th style="width:20%">Email</th>       
-             			<th style="width:20%">Status</th>        
-            			<th style="width:20%">View Full Profile</th>
-					</tr>
-				</thead>    
-				<tbody>
-					<%results.forEach(function(student){%>
-						<tr>
-							<input type="hidden" id="sid" name="sid" value='<%=student.sid%>'></input>
-							<td><%=student.name%></td>
-							<td><%=student.country%></td>
-							<td><%=student.email%></td>
-							<td><%=student.status%></td>
-							<td><input type="submit" value="View Full Profile"></input></td>
-						</tr>
-					<%})%>
-				</tbody>
-			</table>
-		</form>	
+    <body class="image-sphere-style responsive">
+    
+        <!-- START SHADOW WRAPPER -->
+        <div class="shadowBg group">
+            
+            <!-- START WRAPPER -->
+            <div class="wrapper group">
+                 
+                <!-- START HEADER -->
+                <div id="header" class="group">
+                
+                    <!-- START LOGO -->
+                    <div id="logo" class="group">
+                        <a href="index" title="flyUS"> 
+                        <img src="images/edu.jpeg" width = "200" height = "60" alt="EducationUSA" />
+                        </a>              
+                    </div>
+                    <!-- END LOGO -->
+                    
+                    <!-- START NAV -->
+                    <div id="nav" class="group">
+                        <ul class="level-1 white">
+                            <li class="home">
+                                <a href="home">HOME</a>
+                            </li>
+                            <li class="folder">
+                                <a href="gradSchool">Grad School</a>
+                            </li>
+                            <li class="people">
+                                <a href="profiler">Profiler</a>
+                            </li>
+                            <li class="pen">
+                                <a href="professorReviews">Professor Reviews</a>
+                            </li>
+                            <li class="burst">
+                                <a href="finance">Finance</a>
+                                <ul class="sub-menu">
+                                    <li><a href="scholarship">ScholarShip</a></li>
+                                </ul>
+                            </li>
+                            <li class="burst">
+                                <a href="immigration">Immigration</a>
+                                <ul class="sub-menu">
+                                    <li><a href="visaStatsInd">Visa Stats</a></li>
+	                                <li><a href="viQuestions">Sample Visa Questions</a></li>
+	                                <li><a href="ds160faqs">Visa Types</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END NAV -->
+                </div>
+                <!-- END HEADER -->        
+        		
+        		<!-- START CONTENT -->
+                <div id="content" class="layout-sidebar-no group">
+                
+                    <!-- SLOGAN --> 
+                    <div id="slogan" class="inner">
+                        <h1 class="only">Student List</h1>
+                        <div><a href="stud_logout">logout</a></div>
+                    </div>         
+                    <!-- END SLOGAN --> 
+                	
+                    <!-- START PRIMARY -->
+                    <div id="primary" class="hentry group wrapper-content" role="main">
+                    	<form name="studentList" action="/viewStudentFullProfile" method="post">
+							<table>
+								<thead>
+									<tr>
+				            			<th style="width:20%">Student Name</th> 
+				            			<th style="width:20%">School</th>            
+				            			<th style="width:20%">Course</th> 
+				            			<th style="width:20%">Fees</th>  
+				            			<th style="width:20%">Email</th>       
+				             			<th style="width:20%">Status</th>        
+				            			<th style="width:20%">View Full Profile</th>
+									</tr>
+								</thead>    
+								<tbody>
+								
+								<%if(results==null){%>
+								<tr>
+								<td colspan="7">
+								<p align="center"><b>No Students Yet Connected</b></p>
+								</td>
+								</tr>
+								<%}%>
+								<%if(results!==null){%>
+									<%results.forEach(function(student){%>
+										<tr>
+											<input type="hidden" id="sid" name="sid" value='<%=student.studentId%>'></input>
+											<td><%=student.name%></td>
+											<td><%=student.school%></td>
+											<td><%=student.course%></td>
+											<td><%=student.fee%></td>
+											<td><%=student.email%></td>
+											<td><%=student.status%></td>
+											<td><input type="button" onclick="clickButton(<%=student.studentId%>)" value="View Full Profile"></input></td>
+										</tr>
+									<%})%>
+									<%}%>
+								</tbody>
+							</table>
+						</form>	
+						
+						<div id="fullProfile">
+						</div>    
+                    </div>
+                    <!-- END CONTENT -->
+                    
+                </div>
+                <!-- END CONTENT -->
+        		
+                <!-- START TWITTER -->
+                <div id="twitter-slider" class="group">
+                    <div class="tweets-list"></div>
+                    <div class="bird"></div>
+                </div>
+                <!-- END TWITTER -->   
+                
+                <!-- START COPYRIGHT -->
+                <div id="copyright" class="group two-columns">
+                    <div class="inner group">
+                        <p class="left">Copyright <a href="#"><strong>Team 16</strong></a> 2014 - Powered by <strong>Dragons</strong></a></p>
+                        <p class="right">
+                            <a href="#" class="socials facebook" title="Facebook">facebook</a>
+                            <a href="#" class="socials twitter" title="Twitter">twitter</a>
+                            <a href="#" class="socials linkedin" title="Linkedin">linkedin</a>
+                        </p>
+                    </div>
+                    
+                </div>
+                <!-- END COPYRIGHT -->  
+                   
+            </div>
+            <!-- END WRAPPER --> 
+        </div>
+        <!-- END SHADOW -->       
     </body>
 </html>
     
