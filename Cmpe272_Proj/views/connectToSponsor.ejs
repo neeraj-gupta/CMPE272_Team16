@@ -160,7 +160,7 @@
 				 					</thead>     
 				 					<tbody>
 				     					<% results.forEach(function(sponsor){ %>
-				     						<% if(sponsor.type==' individual'){ %>
+				     						<% if(sponsor.type=='individual'){ %>
 				    							<tr>
 				      								<td><input type="checkbox" name="sponsorList" id="sponsorList" value='<%=sponsor.sid%>'></input></td>
 				     								<td><%=sponsor.name%></td>
@@ -189,7 +189,7 @@
 			 					</thead>     
 			 					<tbody>  
 									<% results.forEach(function(sponsor){ %>
-			 							<% if(sponsor.type==' organization'){ %>
+			 							<% if(sponsor.type=='organization'){ %>
 											<tr>
 			  									<td><input type="checkbox" name="sponsorList" id="sponsorList" value='<%=sponsor.sid%>'></input></td>
 			 									<td><%=sponsor.name%></td>
