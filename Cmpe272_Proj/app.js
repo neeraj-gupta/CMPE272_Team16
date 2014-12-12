@@ -62,7 +62,7 @@ app.get('/otherSponsors',sponsorShip.otherSponsors);
 app.post('/viewStudentFullProfile',sponsorShip.viewFullProfile);
 app.get('/spon_logout',sponsorShip.logout);
 
-// User Profile 
+//Student Profile 
 app.get('/student',students.studentIndex);
 app.post('/studentLogin',students.studentLogin);
 app.post('/studentRegister',students.studentRegister);
@@ -88,7 +88,7 @@ app.get('/upload/resume/*', function(req, res){
 	var urlSplit=urlString.split("/");
 	console.log(urlSplit[3]);
 	
-	console.log("hello");
+	
 	res.download('./upload/resume/'+urlSplit[3],urlSplit[3]); // Set disposition and send it.
 });
 
