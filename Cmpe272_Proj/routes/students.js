@@ -1,8 +1,14 @@
 var globals = require('./globals');
 var mysqlpool=require('./dbConnection/mysqlQuery');
+var fs = require('fs-extra');
+var busboy = require('connect-busboy'); 
 
 exports.studentIndex = function(req,res){
-	res.render('studentIndex',{title:'User/FlyUS', header : 'User'});
+	if(globals.auth == "true"){
+		res.render('studentHome', { title : 'Student Home', header : 'Student DashBoard'});
+	} else {
+		res.render('studentIndex',{title:'User/FlyUS', header : 'User'});
+	}
 };
 
 exports.studentLogin = function(req,res){
@@ -30,13 +36,72 @@ exports.studentLogin = function(req,res){
 };
 
 exports.studentRegister = function(req,res){
-	var name = req.param("");
-	var country = req.param("");
-	var email = req.param("");
-	var pass = req.param("");
-	var email = req.param("");
+	console.log("In Student Info Details");
+	var studentId=1;
+	var maxId;
+	var state = req.param("state");
+	var studentName = req.param("studentName");
+	var country = req.param("country");
+	var school = req.param("school");
+	var course = req.param("course");
+	var fee = req.param("tutionfees");
+	var email = req.param("email");
+	var resume = req.param("resume");
+	var justification = req.param("justification");
+	var password = req.param("password");
+	//var id = req.query.id;
 	
-	res.redirect('/getSponsors');
+	 var fstream;
+	 var resumePath;
+	 var justificationPath;
+	// console.log(req.files);
+	 
+	 
+	 fs.readFile(req.files.resume.path, function (err, data) {
+	   	  // ...
+	   	  resumePath = __dirname + "/uploads/resume/"+email+".pdf";
+	   	  console.log(resumePath);
+	   	  fs.writeFile(resumePath, data, function (err) {
+	   		  console.log(err);
+	   	   // res.redirect("createMyProfile");
+	   		fs.readFile(req.files.justification.path, function (err, data) {
+			   	  // ...
+			   	  justificationPath = __dirname + "/uploads/justification/"+email+".pdf";
+			   	  console.log(justificationPath);
+			   	  fs.writeFile(justificationPath, data, function (err) {
+			   		  console.log(err);
+			   	   // res.redirect("createMyProfile");
+			   		  
+			   		  resumePath="/uploads/resume/"+email+".pdf";
+			   		  justificationPath="/uploads/justification/"+email+".pdf";
+			   		var query = "insert into ad_4a077c919828cb2.student_details values ('','"+studentName +"','"+country +"','"+school +"','"+course +"','"+fee +"','"+email +"','"+resumePath +"','"+justificationPath +"','"+password +"','"+state +"')";
+				   	//	var query="select school,annualCost,noOfIntlStudents,noAwardedAid,averageAward from ad_4a077c919828cb2.schools_with_aid where state= '" +state+"'";
+				   		console.log(query);
+				   		mysqlpool.execQuery(query,"",function(err,results){
+				   			if(err){
+				   				throw err;
+				   			} else {
+				   				if(results.length > 0){
+				   					var resultStr = JSON.parse(JSON.stringify(results));
+				   					console.log("REs : " + resultStr);
+				   					res.render('studentHome', { title : 'School Information for Financial Aid'});
+				   				} else {
+				   					console.log("Invalid form");
+				   					res.render('studentHome',{ title : 'School Information for Financial Aid'});
+				   				}
+				   			}
+				   		});
+			   		  
+			   		  
+			   	  });
+			   	})
+	   		  
+	   		  
+	   	  });
+	   	})
+	 
+	 
+	
 };
 
 exports.studentHome = function(req,res){
@@ -51,7 +116,7 @@ exports.getSponsorsList = function(req, res) {
 	var sponsorsIndividual = [];
 
 	if(globals.auth == "true"){
-		var studentId = globals.student_id;
+		var studentId =  globals.student_id;
 		var query2 = "select sponsorId from ad_4a077c919828cb2.sponsor_student where studentId=" + studentId;
 		var query = "";
 
@@ -129,18 +194,21 @@ exports.notifySponsor = function(req, res) {
 	if(globals.auth == "true"){
 		var sponsorId = req.param('sponsorList');
 
-		var studentId = 1;
+		var studentId = globals.student_id;
 		var success = 0;
 		var left = 0;
 
 		var values1;
-		var query = "insert into sponsor_student (sponsorId,studentId) values ";
+		
 
 		var valueString = "";
 		var valStringsArray = [];
 
+		var typeId=typeof sponsorId;
+		if(typeId=="object"){
+			var query = "insert into sponsor_student (sponsorId,studentId,status) values ";
 		for (var i = 0; i < sponsorId.length; i++) {
-			valStringsArray.push("(" + parseInt(sponsorId[i]) + "," + studentId + ")");
+			valStringsArray.push("(" + parseInt(sponsorId[i]) + "," + studentId + ",'Submitted')");
 		}
 
 		for (var j = 0; j < valStringsArray.length; j++) {
@@ -154,6 +222,10 @@ exports.notifySponsor = function(req, res) {
 		console.log(valueString);
 		query = query + valueString;
 		console.log(query);
+		}else{
+			
+			var query = "insert into sponsor_student (sponsorId,studentId,status) values ("+parseInt(sponsorId)+","+studentId+",'Submitted')";
+		}
 
 		mysqlpool.execQuery(query, "", function(err, results) {
 			if (err) {
